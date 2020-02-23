@@ -14,10 +14,10 @@ using namespace std;
 // Siz de buna uyarsaniz deneyimli yazilimcilar kodunuzu daha rahat anlayabilirler
 class TahminOyunu
 {
-	// struct'ta varsayilan public iken class'da bu private'dir. Bu sekilde verimizi saklayabiliriz (Information Hiding)
+	// struct'ta varsayilan public iken class'da bu private'dir. Bu sekilde verimizi saklayabiliriz (Information Hiding).
 public:
 	TahminOyunu(); // Constructor donus turu yoktur. Bu fonksiyon parametre almadigi icin ayni zamanda default constructor olarak tanimlanir.
-	bool tahminEt(); // public member function. Nesne uzerinden dogrudan erisilebilir.
+	bool tahminEt(); // public member function
 	int getTahminSayisi() const; // Sakladigimiz verilere erisimi saglamak icin public getter/setter fonksiyonlar yazariz.
 private:
 	int tahminSayisi; // private data member
@@ -26,8 +26,9 @@ private:
 
 int main()
 {
-	TahminOyunu oyun;  // TahminOyunu sýnýf, oyun ise bu sinifin bir nesnesidir (obje).
-	oyun.tahminEt(); // public member fonksiyonlara erisebiliriz
+	TahminOyunu oyun;  // TahminOyunu sýnýf, oyun ise bu sinifin bir nesnesidir (object).
+	oyun.tahminEt(); /* Genel üye fonksiyonlara (public member functions) nesne üzerinden 
+					 . operatörü kullanarak eriþebilirsiniz.*/
 
 	cout << oyun.getTahminSayisi() <<
 		" denemede bildiniz. Tebrikler!" << endl;
