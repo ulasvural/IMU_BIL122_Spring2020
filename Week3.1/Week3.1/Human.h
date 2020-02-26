@@ -6,7 +6,13 @@ using namespace std;
 class Human
 {
 public:
-
+	// Conversion constructor
+	//Human(const string & name);
+	
+	// Default Constructor ???
+	// Conversion constructor (string)
+	// 2-parameter Constructor
+	Human(const string & name = "Mehmet", int age = 0);
 
 	void printInfo() const;
 

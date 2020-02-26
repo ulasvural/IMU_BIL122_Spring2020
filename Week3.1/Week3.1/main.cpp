@@ -2,12 +2,15 @@
 
 int main()
 {
-	Human ahmet;
+	const Human mehmet;
+	mehmet.getName();
+	mehmet.printInfo();
 
-	ahmet.setName("Ahmet");
-	ahmet.setAge(30);
-
+	Human ahmet("Ahmet");
 	ahmet.printInfo();
+
+	Human zeynep("Zeynep", 29);
+	zeynep.printInfo();
 
 	return 0;
 }

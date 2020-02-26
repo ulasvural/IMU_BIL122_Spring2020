@@ -3,6 +3,17 @@
 
 using namespace std;
 
+//Human::Human(const string & name):age{0}
+//{
+//	setName(name);
+//}
+
+Human::Human(const string & name, int age)
+{
+	setName(name);
+	setAge(age);
+}
+
 void Human::printInfo() const
 {
 	cout << "Name: " << this->name << endl;
