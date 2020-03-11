@@ -123,7 +123,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="autoStaticVariables.cpp" />
+    <ClCompile Include="scopedEnum.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="variablesAndScopes.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
