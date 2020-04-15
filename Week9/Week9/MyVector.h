@@ -6,8 +6,24 @@ using namespace std;
 template<class T>
 class MyVector
 {
-	friend ostream& operator<<(ostream& out, const MyVector<T> & v);
-	//friend istream& operator>>(istream& in, MyVector &v);
+	friend ostream& operator<<(ostream& out, const MyVector<T> & v)
+	{
+		for (auto i{ 0 }; i < v.size; ++i)
+			out << v.at(i) << ", ";
+		out << endl;
+		return out;
+	}
+
+	friend istream& operator>>(istream& in, MyVector<T> &v)
+	{
+		int idx;
+
+		in >> idx;
+		in >> v.at(idx);
+
+		return in;
+	}
+
 public:
 	MyVector();
 	explicit MyVector(int numberOfItems);
@@ -184,6 +200,7 @@ inline MyVector<T>& MyVector<T>::operator+=(const MyVector<T>& o)  // v1 = {3, 4
 
 	data = ptr;
 
+	return *this;
 }
 
 template<class T>
