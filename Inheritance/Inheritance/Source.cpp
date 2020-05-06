@@ -6,9 +6,9 @@ using namespace std;
 class A
 {
 public:
-	A(const string& a = ""):a{a}
+	A(const string& a = ""):a{a + "_a"}
 	{
-		cout << "A-Const:" << a << endl;
+		cout << "A-Const:" << this->a << endl;
 	}
 
 	~A()
@@ -22,9 +22,9 @@ private:
 class B
 {
 public:
-	B(const string& b = "b") :b{ b }, a{b}
+	B(const string& b = "b") :b{ b + "_b" }, a{b + "_b" }
 	{
-		cout << "B-Const:" << b << endl;
+		cout << "B-Const:" << this->b << endl;
 		//a = A("x");		
 	}
 
@@ -39,9 +39,9 @@ private:
 
 class C : public B {
 public:
-	C(const string& c = "c") :c{ c }, a1{ c }, B{ c }
+	C(const string& c = "c") :c{ c + "_c" }, a1{ c + "_c" }, B{ c + "_c" }
 	{
-		cout << "C-Const:" << c << endl;
+		cout << "C-Const:" << this->c << endl;
 		//a1 = A("x");
 	}
 
