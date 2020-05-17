@@ -20,6 +20,11 @@ void A::virt() const
 	cout << "Virt-A\n";
 }
 
+void A::virtNonCost()
+{
+	cout << "Virt-A NonConst\n";
+}
+
 B::B()
 {
 	cout << "Const-B\n";

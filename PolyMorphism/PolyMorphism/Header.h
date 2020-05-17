@@ -8,6 +8,7 @@ public:
 	A();// = default;
 	void nonVirt() const;
 	virtual void virt() const;
+	virtual void virtNonCost();
 	virtual ~A();// = default;
 };
 
