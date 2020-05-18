@@ -1,5 +1,5 @@
 
-#define __LAMBDA_1__
+#define __STR_COMPARISON_LAMBDA__
 
 #ifdef __STR_COMPARISON_1__
 
@@ -26,7 +26,7 @@ void swapItems(T & item1, T & item2)
 }
 
 template<class T>
-void print(T* items, int size)
+void print(const T* items, int size)
 {
 	if (size < 1)
 	{
@@ -53,7 +53,9 @@ int main()
 	int dizi1[] = { 34, 23, 5, 2, 67, 5, 24, 99, 0 };
 
 	print(dizi1, sizeof(dizi1) / sizeof(int));
-	sort(dizi1, sizeof(dizi1) / sizeof(int));
+	sort(dizi1, sizeof(dizi1) / sizeof(int)); // buyukten kucuge
+	print(dizi1, sizeof(dizi1) / sizeof(int));
+	sort(dizi1, sizeof(dizi1) / sizeof(int)); // kucukten buyuge
 	print(dizi1, sizeof(dizi1) / sizeof(int));
 
 	char dizi2[] = { 'a', 'Z', 'c', 'G', 'n', 'f', 'y', 'A', 'u', 'm', 'T', };
@@ -98,7 +100,7 @@ void swapItems(T & item1, T & item2)
 }
 
 template<class T>
-void print(T* items, int size)
+void print(const T* items, int size)
 {
 	if (size < 1)
 	{
@@ -217,7 +219,7 @@ int main()
 	print(dizi1, sizeof(dizi1) / sizeof(int));
 	sort(dizi1, sizeof(dizi1) / sizeof(int), isSmaller);
 	print(dizi1, sizeof(dizi1) / sizeof(int));
-	// sort(dizi1, sizeof(dizi1) / sizeof(int), isSmallerLex); // Hata!!!
+	//sort(dizi1, sizeof(dizi1) / sizeof(int), isSmallerLex); // Hata!!!
 	cout << endl;
 
 	char dizi2[] = { 'a', 'Z', 'c', 'G', 'n', 'f', 'y', 'A', 'u', 'm', 'T', };
@@ -277,7 +279,8 @@ using namespace std;
 int main()
 {
 	vector<int> numbers{ 1, 2, 3, 4, 5, 10, 15, 20, 25, 35, 45, 50 };
-	auto great_than_5_count = count_if(numbers.begin(), numbers.end(), [](int x) { return (x > 5); });
+	auto greater_than_5_count = 
+		count_if(numbers.begin(), numbers.end(), [](int x) { return (x > 7); });
 	cout << "The number of elements greater than 5 is: "
 		<< greater_than_5_count << "." << endl;
 }
@@ -308,18 +311,30 @@ using namespace std;
 
 int main()
 {
+	int numberOfMultOp{ 0 };
+	int numberOfSumOp{ 0 };
+
+	auto mult = [numberOfSumOp, &numberOfMultOp](const int & a, const int & b) -> int {
+		numberOfMultOp++;
+		cout << "#*:" << numberOfSumOp << " " << numberOfMultOp << endl;
+		return a + b;
+	};
 
 	// generalized lambda
-	auto sum = [](auto a, auto b) {
+	auto sum = [&numberOfSumOp, numberOfMultOp](const auto & a, const auto & b) -> auto {
+		numberOfSumOp++;
+		cout << "#+:" << numberOfSumOp << " " << numberOfMultOp << endl;
 		return a + b;
 	};
 
 	cout << "Sum(5,6) = " << sum(5, 6) << endl; // sum of two integers
+	cout << "Mul(5,6) = " << mult(5, 6) << endl; // mul of two integers
 
 	cout << "Sum(2.0,6.5) = " << sum(2.0, 6.5) << endl; // sum of two float numbers
 
-	cout << "Sum((string(\"SoftwareTesting\"), string(\"help.com\")) = 
-		"<<sum(string("SoftwareTesting"), string("help.com")) << endl; // sum of two strings
+	// sum of two strings
+	cout << "Sum((string(\"SoftwareTesting\"), string(\"help.com\")) = "
+		<< sum(string("SoftwareTesting"), string("help.com")) << endl; 
 
 		return 0;
 }
@@ -368,7 +383,7 @@ void swapItems(T & item1, T & item2)
 }
 
 template<class T>
-void print(T* items, int size)
+void print(const T* items, int size)
 {
 	if (size < 1)
 	{
@@ -395,9 +410,9 @@ int main()
 	int dizi1[] = { 34, 23, 5, 2, 67, 5, 24, 99, 0 };
 
 	print(dizi1, sizeof(dizi1) / sizeof(int));
-	sort(dizi1, sizeof(dizi1) / sizeof(int), isGreater<char>);
+	sort(dizi1, sizeof(dizi1) / sizeof(int), isGreater<int>);
 	print(dizi1, sizeof(dizi1) / sizeof(int));
-	sort(dizi1, sizeof(dizi1) / sizeof(int), isSmaller<char>);
+	sort(dizi1, sizeof(dizi1) / sizeof(int), isSmaller<int>);
 	print(dizi1, sizeof(dizi1) / sizeof(int));
 	// sort(dizi1, sizeof(dizi1) / sizeof(int), isSmallerLex); // Hata!!!
 	cout << endl;

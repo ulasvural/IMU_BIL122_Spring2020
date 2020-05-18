@@ -8,7 +8,7 @@
 
 using namespace std;
 
-void title(const string & strArg, char fillchar = '#', int screenWidth = 80)
+void title(const string & strArg, char fillchar = '*', int screenWidth = 60)
 {
 	string str = "  " + strArg + "  ";
 
