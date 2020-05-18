@@ -1,5 +1,5 @@
-#include <iostream>     // std::cout, std::hex, std::endl
-#include <iomanip>      // std::setiosflags, std::resetiosflags
+#include <iostream>     
+#include <iomanip>      
 #include <string>
 
 #include "MyVector.h"
@@ -32,9 +32,11 @@ int main()
 {
 	title("TEST VECTOR CONSTRUCTORS");
 
-	MyVector<int> v1(10, 5);
+	MyVector<int> v1( 10, 5 );
 	MyVector<char> v2( 10, 'a' );
-	MyVector<int> v3{1,2,3,4,5,6,7,56,54,34,768};
+	//MyVector<int> v1{10, 5};  // mantik hatasina neden olabilir!!!
+	//MyVector<char> v2{10, 'a'};
+	MyVector<int> v3{1, 2, 3, 4, 5, 6, 7, 56, 54, 34, 38, 768};
 
 	MyVector<int> v4;
 

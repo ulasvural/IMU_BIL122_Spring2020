@@ -39,24 +39,28 @@ inline MyQueue<T>::MyQueue():MyVector<T>()
 
 // constructor 
 template<class T>
-inline MyQueue<T>::MyQueue(int numberOfItems, T defaultValue):MyVector<T>(numberOfItems, defaultValue)
+inline MyQueue<T>::MyQueue(int numberOfItems, T defaultValue):
+	MyVector<T>(numberOfItems, defaultValue)
 {}
 
 // conversion constructor for initializer list
 template<class T>
-inline MyQueue<T>::MyQueue(const std::initializer_list<T> & l):MyVector<T>(l)
+inline MyQueue<T>::MyQueue(const std::initializer_list<T> & l):
+	MyVector<T>(l)
 {
 
 }
 
 // copy constructor
 template<class T>
-inline MyQueue<T>::MyQueue(const MyQueue<T> &o) :MyVector<T>(o)
+inline MyQueue<T>::MyQueue(const MyQueue<T> &o):
+	MyVector<T>(o)
 {}
 
 // move constructor
 template<class T>
-inline MyQueue<T>::MyQueue(MyQueue<T> &&o) : MyVector<T>(o)
+inline MyQueue<T>::MyQueue(MyQueue<T> &&o) : 
+	MyVector<T>(o)
 {}
 
 // conversion constructor

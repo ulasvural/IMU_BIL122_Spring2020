@@ -21,7 +21,7 @@ public:
 	MyVector();
 
 	// constructor 
-	MyVector(int numberOfItems, T defaultValue);
+	MyVector(int numberOfItems, const T & defaultValue);
 
 	// conversion constructor for initializer list
 	MyVector(const std::initializer_list<T> & l);
@@ -94,7 +94,7 @@ MyVector<T>::MyVector(int numberOfItems)
 }
 
 template<class T>
-MyVector<T>::MyVector(int numberOfItems, T defaultValue)
+MyVector<T>::MyVector(int numberOfItems, const T & defaultValue)
 {
 	cout << "other constructor" << endl;
 
@@ -113,7 +113,7 @@ MyVector<T>::MyVector(int numberOfItems, T defaultValue)
  * Sablon Ozellestirme ile belli turler icin farkli calisan fonksiyonlar yazabilirsiniz
  */
 template<>
-MyVector<char>::MyVector(int numberOfItems, char defaultValue)
+MyVector<char>::MyVector(int numberOfItems, const char & defaultValue)
 {
 	cout << "char constructor" << endl;
 	if (numberOfItems > 0)
